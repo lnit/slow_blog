@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_10_23_092549) do
+ActiveRecord::Schema[8.0].define(version: 2025_09_02_194847) do
   create_table "comments", force: :cascade do |t|
     t.integer "post_id", null: false
     t.text "body"
@@ -30,6 +30,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_10_23_092549) do
     t.integer "status", default: 0, null: false
     t.integer "view_count", default: 0, null: false
     t.index ["status", "user_id"], name: "index_posts_on_status_and_user_id"
+    t.index ["status", "view_count"], name: "index_posts_on_status_and_view_count", order: { view_count: :desc }
   end
 
   create_table "posts_tags", id: false, force: :cascade do |t|
