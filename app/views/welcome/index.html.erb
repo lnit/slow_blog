@@ -1,5 +1,5 @@
 <div>
-  <% if @popular_tags.any? %>
+  <% if @popular_tags.present? %>
     <section>
       <h2>Popular Tags</h2>
       <div>
@@ -12,19 +12,19 @@
     </section>
   <% end %>
 
-  <% if @posts.count.zero? %>
-    <p>No posts found.</p>
-  <% end %>
   <% @posts.each do |post| %>
     <article>
       <%= render partial: post, locals: { short: true } %>
       <footer>
         <details>
-          <summary>Comments (<%= post.comments.count %>)</summary>
+          <summary>Comments (<%= post.comments.size %>)</summary>
           <%= render post.comments %>
         </details>
       </footer>
     </article>
+  <% end %>
+  <% if @posts.size.zero? %>
+    <p>No posts found.</p>
   <% end %>
 
   <%= render 'posts/paging', page: @page %>
