@@ -18,14 +18,10 @@
   <% end %>
   <footer>
     <h3>Comments</h3>
-    <% @post.comments.each do |comment| %>
-      <%= render comment %>
-    <% end %>
+    <%= render @comments %>
     <% if Current.user %>
       <h3>New Comment</h3>
       <%= render "comments/form", post: @post, comment: Comment.new %>
     <% end %>
   </footer>
 </article>
-
-
