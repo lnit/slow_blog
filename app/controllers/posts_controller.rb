@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
 
-    posts_scope = @user.posts.eager_load(:comments)
+    posts_scope = @user.posts.eager_load(:tags, { comments: :user })
     posts_scope = posts_scope.published unless Current.user == @user
 
     # Filter by tag if specified
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     unless @post.published? || @post.created_by?(Current.user)
       raise ActiveRecord::RecordNotFound
     end
-
+    @comments = @post.comments.preload(:user)
     @post.increment!(:view_count)
   end
 

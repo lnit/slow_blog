@@ -116,6 +116,33 @@ GEM
       raabro (~> 1.4)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    google-protobuf (4.32.0)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-aarch64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-aarch64-linux-musl)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-arm64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-x86-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-x86-linux-musl)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-x86_64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-x86_64-linux-gnu)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.32.0-x86_64-linux-musl)
+      bigdecimal
+      rake (>= 13)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.2.2)
@@ -182,6 +209,8 @@ GEM
     parser (3.3.9.0)
       ast (~> 2.4.1)
       racc
+    pg_query (6.1.0)
+      google-protobuf (>= 3.25.3)
     playwright-ruby-client (1.55.0)
       concurrent-ruby (>= 1.1.6)
       mime-types (>= 3.0)
@@ -193,6 +222,7 @@ GEM
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
       rack
+    prosopite (2.1.1)
     psych (5.2.6)
       date
       stringio
@@ -350,7 +380,9 @@ DEPENDENCIES
   ci_logger
   debug
   importmap-rails
+  pg_query
   propshaft
+  prosopite
   puma (>= 5.0)
   rails (~> 8.0.0)
   rubocop-rails-omakase

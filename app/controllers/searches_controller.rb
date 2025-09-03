@@ -6,7 +6,7 @@ class SearchesController < ApplicationController
 
     if @tag
       @page = Page.new(params: params, relation: @tag.posts.published)
-      @posts = @tag.posts.published.order(view_count: :desc).limit(5).offset(@page.offset)
+      @posts = @tag.posts.published.preload(:tags, { comments: :user }).order(view_count: :desc).limit(5).offset(@page.offset)
     else
       @page = Page.new(params: params, relation: Post.none)
       @posts = Post.none

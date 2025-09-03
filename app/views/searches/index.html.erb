@@ -18,7 +18,7 @@
       <%= render partial: post, locals: { short: true } %>
       <footer>
         <details>
-          <summary>Comments (<%= post.comments.count %>)</summary>
+          <summary>Comments (<%= post.comments.size %>)</summary>
           <%= render post.comments %>
         </details>
       </footer>
