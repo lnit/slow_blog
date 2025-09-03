@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
 
   def index
     @page = Page.new(params: params, relation: Post)
-    @posts = Post.published.order(view_count: :desc).limit(5).offset(@page.offset)
+    @posts = Post.published.preload(:tags, { comments: :user }).order(view_count: :desc).limit(5).offset(@page.offset)
     @popular_tags = Tag.joins(:posts)
                       .where(posts: { status: :published })
                       .group("tags.id")
